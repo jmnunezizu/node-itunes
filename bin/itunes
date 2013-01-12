@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var ITunes = require('../lib/itunes');
+
+program
+    .version(ITunes.version)
+    .usage('[options] <command>...')
+    .option('-d, --debug', 'Enables debug mode');
+
+program
+    .command('play')
+    .description('Starts playback')
+    .action(
+        function() {
+            var itunes = new ITunes({debug: program.debug});
+            itunes.on('play', function(track) {
+                console.log('Playing');
+                console.log(track);
+            });
+            itunes.play();
+        }
+    );
+
+program
+    .command('stop')
+    .description('Stops playback')
+    .action(
+        function() {
+            var itunes = new ITunes({debug: program.debug});
+            itunes.on('stop', function(track) {
+                console.log('Stopping');
+                console.log(track);
+            });
+            itunes.stop();
+        }
+    );
+
+program
+    .command('add <file>')
+    .description('Adds the file <file> to iTunes')
+    .action(
+        function(file) {
+            var itunes = new ITunes({debug: program.debug});
+            itunes.on('added', function(track) {
+                console.log('Adding');
+                console.log(track);
+            });
+            itunes.add(file);
+        }
+    );
+
+
+program.parse(process.argv);

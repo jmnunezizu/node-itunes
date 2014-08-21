@@ -1,22 +1,28 @@
 {
-    "name": "itunes",
-    "version": "0.0.1",
-    "description": "iTunes library for node.js",
-    "keywords": ["cli", "itunes"],
-    "author": {
-        "name": "Jose Maria Nunez Izu",
-        "email": "<jmnunezizu@gmail.com>"
-    },
-    "repository": {
-        "type": "git"
-    },
-    "dependencies": {
-        "commander": "1.1.1"
-    },
-    "main": "lib/itunes.js",
-    "bin": {
-        "nbp": "./bin/itunes",
-        "itunes": "./bin/itunes"
-    },
-    "engines": { "node": ">=0.4.0"}
+  "name": "itunes",
+  "version": "0.0.1",
+  "description": "iTunes library for node.js",
+  "keywords": [
+    "cli",
+    "itunes"
+  ],
+  "author": {
+    "name": "Jose Maria Nunez Izu",
+    "email": "<jmnunezizu@gmail.com>"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "commander": "1.1.1",
+    "debug": "~0.8.1"
+  },
+  "main": "lib/itunes.js",
+  "bin": {
+    "nbp": "./bin/itunes",
+    "itunes": "./bin/itunes"
+  },
+  "engines": {
+    "node": ">=0.4.0"
+  }
 }
